@@ -1,0 +1,43 @@
+class Solution:
+    def minOperations(self, nums: List[int], divide: List[int]) -> int:
+        deletion = 0
+        nums.sort()
+        divide.sort()
+        for i in nums:
+            divides = 0
+            for j in divide:
+                if j % i == 0:
+                    divides = divides + 1
+                else:
+                    divides = 0
+                    deletion = deletion + 1
+                    break
+            if divides == len(divide):
+                return deletion
+                break
+        if divides == 0:
+            return -1
+
+
+
+class Solution:
+    def minOperations(self, nums: List[int], divide: List[int]) -> int:
+        nums.sort()
+        divide.sort()
+        deletion = 0
+        count = 0
+        for i in nums:
+            for j in range(len(divide)):
+                if divide[j] % i == 0:
+                    count = count + 1
+                else:
+                    deletion = deletion + 1
+                    break
+            if j == len(divide)-1:
+                if count == 0:
+                    break
+                else:
+                    return deletion
+                    break
+        if count == 0:
+            return -1
