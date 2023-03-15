@@ -1,11 +1,15 @@
-a = [1,2,-1,3,4,10,10,-10,-1]
-c = 0
-total = 0
+import sys
+a = [-2,-1]
+maxx = -sys.maxsize - 1 
+temp = 0
 for i in range(len(a)):
-    if c + a[i] >= a[i]:
-        c = c + a[i]
-        if c > total:
-            total = c
+    if temp + a[i] >= a[i]:
+        temp = temp + a[i]
+        if temp > maxx:
+            maxx = temp
     else:
-        c = a[i]
-print(total)
+        temp = a[i]
+        if temp > maxx:
+            maxx = temp
+
+print(maxx)
